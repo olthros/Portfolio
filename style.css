@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-main: #0f1115;         
+  --bg-card: #181c22;        
+  --bg-card-hover: #1f242c;  
+  --primary: #e11d48;        
+  --primary-hover: #f43f5e;  
+  --text-title: #ffffff;      
+  --text-body: #9ca3af;      
+  --border-color: #2d333b;    
+  
+  --radius-card: 16px;
+  --radius-img: 12px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-body);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 900px;
+  padding: 6rem 2rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.header-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0 30px rgba(225, 29, 72, 0.3); /* 参考图的红色氛围光 */
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-title);
+  margin-bottom: 1rem;
+  letter-spacing: -0.02em;
+}
+
+header p {
+  color: var(--text-body);
+  font-size: 1.125rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.meals-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.meal {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-card);
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.meal:hover {
+  background-color: var(--bg-card-hover);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8);
+}
+
+.meal img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--radius-img);
+  margin-bottom: 1.5rem;
+  background-color: #2a2e36;
+}
+
+.meal-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.meal-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-title);
+  letter-spacing: -0.01em;
+}
+
+.meal-category {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  color: var(--text-body);
+  font-weight: 500;
+}
+
+.dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  margin-right: 8px;
+  box-shadow: 0 0 8px var(--primary);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 4rem 1.5rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+
+  .meals-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .meal img {
+    height: 180px;
+  }
+}
